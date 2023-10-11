@@ -49,4 +49,46 @@ public class JobTest {
 
         assertFalse(job1.equals(job2));
     }
+
+    //This test verifies that the toString method returns a string that starts and ends with a new line
+    @Test
+    public void testToStringStartsAndEndsWithNewLine () {
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        String jobString = job.toString();
+
+        assertTrue(jobString.startsWith(System.lineSeparator()));
+        assertTrue(jobString.endsWith(System.lineSeparator()));
+    }
+
+    //the labels and data are correctly included in the toString output
+    @Test
+    public void testToStringContainsCorrectLabelsAndData () {
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String expectedOutput = "ID: " + job.getId() +
+                System.lineSeparator() + "Name: Product tester" +
+                System.lineSeparator() + "Employer: ACME" +
+                System.lineSeparator() + "Location: Desert" +
+                System.lineSeparator() + "Position Type: Quality control" +
+                System.lineSeparator() + "Core Competency: Persistence" +
+                System.lineSeparator();
+
+        assertEquals(expectedOutput, job.toString());
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField () {
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String expectedOutput = "ID: " + job.getId() +
+                System.lineSeparator() + "Name: Data not available" +
+                System.lineSeparator() + "Employer: Data not available" +
+                System.lineSeparator() + "Location: Data not available" +
+                System.lineSeparator() + "Position Type: Data not available" +
+                System.lineSeparator() + "Core Competency: Data not available" +
+                System.lineSeparator();
+        assertEquals(expectedOutput, job.toString());
+    }
 }

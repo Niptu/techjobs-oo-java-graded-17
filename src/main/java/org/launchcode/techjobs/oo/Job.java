@@ -1,5 +1,6 @@
 package org.launchcode.techjobs.oo;
 
+import java.sql.SQLOutput;
 import java.util.Objects;
 
 public class Job {
@@ -90,5 +91,34 @@ public class Job {
 // Generate getter for 'id' field
     public int getId() {
         return id;
+    }
+
+    //adds new lines before and after each label and field value, ensuring that the string starts and ends with a blank line
+//    @Override
+//    public String toString(){
+//        return System.lineSeparator()+"ID: " + id +
+//                System.lineSeparator()+"Name: " + name +
+//                System.lineSeparator()+"Employer; " + employer +
+//                System.lineSeparator()+"Location: " + location +
+//                System.lineSeparator()+"Position Type: " + positionType +
+//                System.lineSeparator()+"Core Competency: " + coreCompetency +
+//                System.lineSeparator();
+//    }
+    //modified toString method checks if a field is empty and, if so, adds "Data not available" for that field.
+    // It also includes the "OOPS! This job does not seem to exist" message for a job with no data except the ID.
+    @Override
+    public String toString(){
+        if (name.equals("") && employer.getValue().equals("") && location.getValue().equals("")
+        && positionType.getValue().equals("") && coreCompetency.getValue().equals("")) {
+            return System.lineSeparator() + "OOPS! This job does not seem to exist" + System.lineSeparator();
+        }
+
+        return System.lineSeparator()+"ID: " + id +
+                System.lineSeparator()+"Name: " + (name.equals("") ? "Data not available" : name) +
+                System.lineSeparator()+"Employer: " + (employer.getValue().equals("") ? "Data not available" : employer) +
+                System.lineSeparator()+"Location: " + (location.getValue().equals("") ? "Data not available" : location) +
+                System.lineSeparator()+"Position Type: " + (positionType.getValue().equals("") ? "Data not available" : positionType) +
+                System.lineSeparator()+"Core Competency: " + (coreCompetency.getValue().equals("") ? "Data not available" : coreCompetency) +
+                System.lineSeparator();
     }
 }
