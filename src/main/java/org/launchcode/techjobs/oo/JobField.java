@@ -1,4 +1,7 @@
 package org.launchcode.techjobs.oo;
+
+import java.util.Objects;
+
 // Declare the common fields id and value.
 // Provide two constructors to initialize these fields.
 // Generate the getters and setters for id and value.
