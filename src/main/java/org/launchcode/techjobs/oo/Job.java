@@ -36,10 +36,12 @@ public class Job {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Job job)) return false;
-        return getId() == job.getId();
+        if (this == o) return true;  // Checks if the objects are the same.
+        if (!(o instanceof Job)) return false;  // Checks if 'o' is an instance of Job.
+        Job job = (Job) o;  // Cast 'o' to Job.
+        return getId() == job.getId();  // Compares the IDs of this object and 'job'.
     }
+
 
     @Override
     public int hashCode() {
