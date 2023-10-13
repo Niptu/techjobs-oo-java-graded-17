@@ -62,6 +62,7 @@ public class JobTest {
         assertTrue(jobString.endsWith(System.lineSeparator()));
     }
 
+
     //the labels and data are correctly included in the toString output
     @Test
     public void testToStringContainsCorrectLabelsAndData () {
