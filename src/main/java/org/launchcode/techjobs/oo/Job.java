@@ -115,12 +115,18 @@ public class Job {
             return System.lineSeparator() + "OOPS! This job does not seem to exist" + System.lineSeparator();
         }
 
-        return System.lineSeparator()+"ID: " + id +
+        return "ID: " + id +
                 System.lineSeparator()+"Name: " + (name.equals("") ? "Data not available" : name) +
                 System.lineSeparator()+"Employer: " + (employer.getValue().equals("") ? "Data not available" : employer) +
                 System.lineSeparator()+"Location: " + (location.getValue().equals("") ? "Data not available" : location) +
                 System.lineSeparator()+"Position Type: " + (positionType.getValue().equals("") ? "Data not available" : positionType) +
                 System.lineSeparator()+"Core Competency: " + (coreCompetency.getValue().equals("") ? "Data not available" : coreCompetency) +
+//        return System.lineSeparator()+"ID: " + id +
+//                System.lineSeparator()+"Name: " + (name) +
+//                System.lineSeparator()+"Employer: " + (employer) +
+//                System.lineSeparator()+"Location: " + (location) +
+//                System.lineSeparator()+"Position Type: " + (positionType) +
+//                System.lineSeparator()+"Core Competency: " + (coreCompetency.getValue()) +
                 System.lineSeparator();
     }
 }
